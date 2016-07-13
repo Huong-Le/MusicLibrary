@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.shini_000.musiclibrary.adapter.AlbumAdapter;
+import com.example.shini_000.musiclibrary.callback.ResponseApiListner;
 import com.example.shini_000.musiclibrary.model.Releases;
 import com.google.gson.Gson;
 
@@ -24,6 +25,12 @@ public class ResultData extends AsyncTask<String, Void, Releases> {
     private ListView listView;
     private AlbumAdapter albumAdapter;
     private int imageArtist;
+
+    ResponseApiListner<Releases> callback;
+
+    public void setCallback(ResponseApiListner<Releases> callback) {
+        this.callback = callback;
+    }
 
     public ResultData(Activity activity, Releases releases, ListView listView, int imageArtist) {
         this.activity = activity;
@@ -50,7 +57,6 @@ public class ResultData extends AsyncTask<String, Void, Releases> {
     @Override
     protected void onPostExecute(Releases releases) {
         super.onPostExecute(releases);
-        albumAdapter = new AlbumAdapter(activity, releases, imageArtist);
-        listView.setAdapter(albumAdapter);
+        callback.onResponse(releases);
     }
 }

@@ -1,18 +1,14 @@
 package com.example.shini_000.musiclibrary.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.shini_000.musiclibrary.R;
 import com.example.shini_000.musiclibrary.model.Releases;
 import com.example.shini_000.musiclibrary.viewholder.ViewHolderAlbum;
-import com.squareup.picasso.Picasso;
 
 
 /**
@@ -25,6 +21,9 @@ public class AlbumAdapter extends BaseAdapter {
     LayoutInflater inflater;
     private int imageArtist;
 
+    public void setReleases(Releases releases) {
+        this.releases = releases;
+    }
 
     public AlbumAdapter(Context context, Releases releases, int imageArtist) {
         this.context = context;
@@ -33,10 +32,16 @@ public class AlbumAdapter extends BaseAdapter {
         this.imageArtist = imageArtist;
     }
 
+    public AlbumAdapter(Context context, int imageArtist) {
+        this.context = context;
+        inflater = LayoutInflater.from(context);
+        this.imageArtist = imageArtist;
+    }
+
     @Override
     public int getCount() {
-        Log.e("huongle", String.valueOf(releases.getReleases().size()));
-        return releases.getReleases().size();
+//        Log.e("huongle", String.valueOf(releases.getReleases().size()));
+        return releases != null ? releases.getReleases().size() : 0;
     }
 
     @Override
@@ -56,19 +61,12 @@ public class AlbumAdapter extends BaseAdapter {
 
         if (view == null) {
             view = inflater.inflate(R.layout.item_album, null);
-            viewHolderAlbum = new ViewHolderAlbum();
-            viewHolderAlbum.txtNameAlbum = (TextView) view.findViewById(R.id.txtNameAlbum);
-            viewHolderAlbum.txtNameArtist = (TextView) view.findViewById(R.id.txtNameArtist);
-            viewHolderAlbum.imgAlbum = (ImageView) view.findViewById(R.id.imgAlbum);
+            viewHolderAlbum = new ViewHolderAlbum(view);
             view.setTag(viewHolderAlbum);
         } else {
             viewHolderAlbum = (ViewHolderAlbum) view.getTag();
         }
-//
-        viewHolderAlbum.txtNameAlbum.setText(releases.getReleases().get(position).getTitle());
-        viewHolderAlbum.txtNameArtist.setText(releases.getReleases().get(position).getArtist());
-        Picasso.with(context) .load(imageArtist) .resize(160, 160) .centerCrop() .into(viewHolderAlbum.imgAlbum);
-
+        viewHolderAlbum.setupWith(releases.getReleases().get(position), imageArtist);
         return view;
     }
 }

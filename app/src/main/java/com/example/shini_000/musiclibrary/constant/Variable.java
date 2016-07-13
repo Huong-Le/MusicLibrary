@@ -13,5 +13,6 @@ public class Variable {
     public static final String ONE_DIRECTION = "https://api.discogs.com/artists/2432320/releases";
     public static final String MAROON5 = "https://api.discogs.com/artists/192151/releases";
     public static final String BRUNO_MARS = "https://api.discogs.com/artists/1357693/releases";
+    public static final String ARTIST = "artist";
 
 }

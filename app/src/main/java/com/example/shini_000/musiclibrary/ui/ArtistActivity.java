@@ -1,20 +1,18 @@
 package com.example.shini_000.musiclibrary.ui;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import java.util.ArrayList;
-
 import com.example.shini_000.musiclibrary.R;
 import com.example.shini_000.musiclibrary.adapter.ArtistAdapter;
-
-import com.example.shini_000.musiclibrary.model.Artist;
 import com.example.shini_000.musiclibrary.constant.Variable;
+import com.example.shini_000.musiclibrary.model.Artist;
+
+import java.util.ArrayList;
 
 public class ArtistActivity extends AppCompatActivity {
 
@@ -45,8 +43,7 @@ public class ArtistActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), AlbumActivity.class);
-                Log.e("huongle", "skdjfsd");
-                intent.putExtra("item_artist", listArtist.get(position));
+                intent.putExtra(Variable.ARTIST, listArtist.get(position));
                 startActivity(intent);
             }
         });
