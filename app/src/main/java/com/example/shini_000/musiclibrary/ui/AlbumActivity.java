@@ -8,7 +8,7 @@ import com.example.shini_000.musiclibrary.R;
 import com.example.shini_000.musiclibrary.adapter.AlbumAdapter;
 import com.example.shini_000.musiclibrary.api.ResultData;
 import com.example.shini_000.musiclibrary.callback.ResponseApiListner;
-import com.example.shini_000.musiclibrary.constant.Variable;
+import com.example.shini_000.musiclibrary.constant.Constant;
 import com.example.shini_000.musiclibrary.model.Artist;
 import com.example.shini_000.musiclibrary.model.Releases;
 
@@ -43,7 +43,7 @@ public class AlbumActivity extends Activity {
     }
 
     private void handleIntent() {
-        artist = getIntent().getParcelableExtra(Variable.ARTIST);
+        artist = getIntent().getParcelableExtra(Constant.INTENT_ARTIST);
     }
 
     private void initData() {

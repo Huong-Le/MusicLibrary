@@ -9,7 +9,7 @@ import android.widget.GridView;
 
 import com.example.shini_000.musiclibrary.R;
 import com.example.shini_000.musiclibrary.adapter.ArtistAdapter;
-import com.example.shini_000.musiclibrary.constant.Variable;
+import com.example.shini_000.musiclibrary.constant.Constant;
 import com.example.shini_000.musiclibrary.model.Artist;
 
 import java.util.ArrayList;
@@ -26,14 +26,14 @@ public class ArtistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_artist);
 
         listArtist = new ArrayList<Artist>();
-        listArtist.add(new Artist(R.drawable.adele, "Adele", Variable.ADELE));
-        listArtist.add(new Artist(R.drawable.avril_lavigne, "Arvil Lavigne", Variable.AVRIL_LAVIGNE));
-        listArtist.add(new Artist(R.drawable.bruno_mars, "Bruno Mars", Variable.BRUNO_MARS));
-        listArtist.add(new Artist(R.drawable.eminem, "Eminem", Variable.EMINEM));
-        listArtist.add(new Artist(R.drawable.katy_perry, "Katy Perry", Variable.KATY_PERRY));
-        listArtist.add(new Artist(R.drawable.maroon5, "Maroon 5", Variable.MAROON5));
-        listArtist.add(new Artist(R.drawable.one_direction, "One Direction", Variable.ONE_DIRECTION));
-        listArtist.add(new Artist(R.drawable.taylor_swift, "Taylor Swift", Variable.TAYLOR_SWIFT));
+        listArtist.add(new Artist(R.drawable.adele, "Adele", Constant.API_ADELE));
+        listArtist.add(new Artist(R.drawable.avril_lavigne, "Arvil Lavigne", Constant.API_AVRIL_LAVIGNE));
+        listArtist.add(new Artist(R.drawable.bruno_mars, "Bruno Mars", Constant.API_BRUNO_MARS));
+        listArtist.add(new Artist(R.drawable.eminem, "Eminem", Constant.API_EMINEM));
+        listArtist.add(new Artist(R.drawable.katy_perry, "Katy Perry", Constant.API_KATY_PERRY));
+        listArtist.add(new Artist(R.drawable.maroon5, "Maroon 5", Constant.API_MAROON5));
+        listArtist.add(new Artist(R.drawable.one_direction, "One Direction", Constant.API_ONE_DIRECTION));
+        listArtist.add(new Artist(R.drawable.taylor_swift, "Taylor Swift", Constant.API_TAYLOR_SWIFT));
 
         gridView = (GridView)findViewById(R.id.gridView);
 
@@ -43,7 +43,7 @@ public class ArtistActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), AlbumActivity.class);
-                intent.putExtra(Variable.ARTIST, listArtist.get(position));
+                intent.putExtra(Constant.INTENT_ARTIST, listArtist.get(position));
                 startActivity(intent);
             }
         });
