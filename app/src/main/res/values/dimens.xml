@@ -2,4 +2,15 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="frame">90dp</dimen>
+    <dimen name="img_album">80dp</dimen>
+    <dimen name="view">1dp</dimen>
+    <dimen name="btn_album">60dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="txt_album">16dp</dimen>
+    <dimen name="txt_artist">18dp</dimen>
+    <dimen name="width_artist">180dp</dimen>
+    <dimen name="height_img_artist">200dp</dimen>
+    <dimen name="height_frame">60dp</dimen>
+    <dimen name="width_btn">30dp</dimen>
 </resources>

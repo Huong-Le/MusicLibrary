@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.shini_000.musiclibrary.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,12 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shini_000.musiclibrary.R;
+import com.example.shini_000.musiclibrary.model.Artist;
+import com.example.shini_000.musiclibrary.viewholder.ViewHolderArtist;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-import Objects.Artist;
-import ViewHolder.ViewHolderArtist;
 
 /**
  * Created by shini_000 on 7/12/2016.
@@ -52,7 +51,7 @@ public class ArtistAdapter extends BaseAdapter {
         ViewHolderArtist viewHolderArtist;
 
         if( view == null ) {
-            view = inflater.inflate(R.layout.artist, null);
+            view = inflater.inflate(R.layout.item_artist, null);
             viewHolderArtist = new ViewHolderArtist();
             viewHolderArtist.imgNameArtist = (ImageView) view.findViewById(R.id.imgArtist);
             viewHolderArtist.txtNameArtist = (TextView) view.findViewById(R.id.txtNameArtist);
