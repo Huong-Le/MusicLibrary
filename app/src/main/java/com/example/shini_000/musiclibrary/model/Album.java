@@ -1,4 +1,4 @@
-package Objects;
+package com.example.shini_000.musiclibrary.model;
 
 /**
  * Created by shini_000 on 7/12/2016.

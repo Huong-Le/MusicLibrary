@@ -1,4 +1,4 @@
-package com.example.shini_000.musiclibrary;
+package com.example.shini_000.musiclibrary.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +10,13 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
-import Adapter.ArtistAdapter;
-import Objects.Artist;
-import Variable.Variable;
+import com.example.shini_000.musiclibrary.R;
+import com.example.shini_000.musiclibrary.adapter.ArtistAdapter;
 
-public class ArtistScreen extends AppCompatActivity {
+import com.example.shini_000.musiclibrary.model.Artist;
+import com.example.shini_000.musiclibrary.constant.Variable;
+
+public class ArtistActivity extends AppCompatActivity {
 
     private GridView gridView;
     private ArtistAdapter artistAdapter;
@@ -23,7 +25,7 @@ public class ArtistScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_artist);
+        setContentView(R.layout.activity_artist);
 
         listArtist = new ArrayList<Artist>();
         listArtist.add(new Artist(R.drawable.adele, "Adele", Variable.ADELE));
@@ -37,14 +39,14 @@ public class ArtistScreen extends AppCompatActivity {
 
         gridView = (GridView)findViewById(R.id.gridView);
 
-        artistAdapter = new ArtistAdapter(ArtistScreen.this, listArtist);
+        artistAdapter = new ArtistAdapter(ArtistActivity.this, listArtist);
         gridView.setAdapter(artistAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), AlbumScreen.class);
+                Intent intent = new Intent(getApplicationContext(), AlbumActivity.class);
                 Log.e("huongle", "skdjfsd");
-                intent.putExtra("artist", listArtist.get(position));
+                intent.putExtra("item_artist", listArtist.get(position));
                 startActivity(intent);
             }
         });
